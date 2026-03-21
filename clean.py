@@ -437,6 +437,7 @@ def clean_all_files(
     wsxc_pattern = re.compile(r'^wsxc(\d{10,})_(\d+)(\.[^.]+)$')
     screenshot_pattern = re.compile(r'^ScreenShot.*\.png$', re.IGNORECASE)
     wechat_pattern = re.compile(r'^微信图片_(\d{14})_(\d+)_(\d+)\.jpg$', re.IGNORECASE)
+    qq_pattern = re.compile(r'^QQ.*', re.IGNORECASE)
 
     directory = Path(directory)
 
@@ -456,6 +457,7 @@ def clean_all_files(
             wsxc_match = wsxc_pattern.match(file.name)
             screenshot_match = screenshot_pattern.match(file.name)
             wechat_match = wechat_pattern.match(file.name)
+            qq_match = qq_pattern.match(file.name)
             
             if wsxc_match:
                 main_num = wsxc_match.group(1)
@@ -471,6 +473,11 @@ def clean_all_files(
                 main_num = wechat_match.group(1)  # 日期时间戳
                 sub_num = int(wechat_match.group(2))  # 第一个数字
                 ext = '.jpg'
+            elif qq_match:
+                # 对于QQ开头文件，保留文件名作为主键，按扩展名识别
+                main_num = file.name
+                sub_num = 0
+                ext = file.suffix.lower() or ''
             else:
                 # 检查是否为有效的图片或视频文件扩展名
                 file_ext = file.suffix.lower()
