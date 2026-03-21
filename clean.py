@@ -932,7 +932,7 @@ def generate_readme(directory: str, script_name: str) -> None:
     """生成 README.md 文件（备用）"""
     readme_content = f"""# 文件清理工具
 
-版本: v1.2
+版本: v1.2.1
 
 这是一个用于清理下载目录中旧文件或特定类型文件的 Python 脚本。
 

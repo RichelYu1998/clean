@@ -2,7 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.2.0-green.svg)]()
+[![Version](https://img.shields.io/badge/version-1.2.1-green.svg)]()
 
 这是一个用于清理下载文件的Python脚本，主要用于管理图片和视频文件。支持多种清理模式和文件类型，具有详细的日志记录和测试模式。最新版本支持所有图片和视频文件的通用清理，无需符合特定命名规则。
 
@@ -586,7 +586,7 @@ SOFTWARE.
 ---
 
 **最后更新**: 2026年3月21日
-**版本**: v1.2.0
+**版本**: v1.2.1
 **作者**: File Cleaner Team
 
 ## 📈 版本历史
