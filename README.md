@@ -109,7 +109,7 @@
 
 1. **下载脚本**
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/RichelYu1998/clean.git>
    cd file-cleaner
    ```
 
@@ -160,7 +160,7 @@ python clean.py --directory D:\Downloads --mode all
 
 1. **克隆项目**
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/RichelYu1998/clean.git>
    cd file-cleaner
    ```
 
