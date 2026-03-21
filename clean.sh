@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /mnt/d/ws/wsxc
+cd "$(dirname "$0")"
 python3 clean.py "$@"

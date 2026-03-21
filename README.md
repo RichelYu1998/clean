@@ -2,11 +2,11 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.1.0-green.svg)]()
+[![Version](https://img.shields.io/badge/version-1.2.0-green.svg)]()
 
 这是一个用于清理下载文件的Python脚本，主要用于管理图片和视频文件。支持多种清理模式和文件类型，具有详细的日志记录和测试模式。最新版本支持所有图片和视频文件的通用清理，无需符合特定命名规则。
 
-## 🆕 最新特性 (v1.1.0)
+## 🆕 最新特性 (v1.2.0)
 
 - **📚 专业文档体系**: 完全重构的README，采用开源项目标准格式
 - **🎨 现代化视觉设计**: emoji图标、GitHub badges、响应式表格布局
@@ -15,6 +15,7 @@
 - **📊 版本管理**: 建立完整的版本历史和路线图规划
 - **❓ 用户支持**: 常见问题解答、调试技巧、性能优化指南
 - **💻 命令行界面**: 新增完整的命令行参数支持，提升使用便利性
+- **🔄 自动路径定位**: clean.sh和clean.bat脚本现在会自动定位到同级目录运行clean.py，不再依赖固定路径
 
 ## 📋 目录
 
@@ -585,7 +586,7 @@ SOFTWARE.
 ---
 
 **最后更新**: 2026年3月21日
-**版本**: v1.1.1
+**版本**: v1.2.0
 **作者**: File Cleaner Team
 
 ## 📈 版本历史
@@ -598,6 +599,14 @@ SOFTWARE.
 - 🏷️ **版本管理**: 建立完整的版本历史追踪系统
 - 📖 **用户体验优化**: 添加目录导航、常见问题、路线图等实用内容
 - 💻 **命令行支持**: 新增完整的命令行参数支持，提供更灵活的使用方式
+
+### v1.2.0 (2026-03-21) - 路径优化版
+- 🔄 路径优化: clean.sh和clean.bat脚本现在会自动定位到同级目录运行clean.py，不再依赖固定路径
+- 📝 文档更新: README 文件新增自动路径定位特性说明
+
+### v1.2.0 (2026-03-21) - 路径优化版
+- 🔄 路径优化: clean.sh和clean.bat脚本现在会自动定位到同级目录运行clean.py，不再依赖固定路径
+- 📝 文档更新: README 文件新增自动路径定位特性说明
 
 ### v1.1.1 (2026-03-21) - QQ前缀兼容版
 - 🔧 新增功能: `clean_all_files` 现在支持文件名以 `QQ` 开头的文件（大小写不敏感）
