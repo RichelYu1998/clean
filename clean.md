@@ -1,6 +1,6 @@
 # 文件清理工具
 
-版本: v1.2
+版本: v1.2.1
 
 这是一个用于清理下载目录中旧文件或特定类型文件的 Python 脚本。
 
@@ -101,9 +101,9 @@ MODE = "list"
 
 ## 版本信息
 
-生成时间: 2026-03-21 23:16:53
-脚本位置: /Users/yu/Downloads/clean/clean.py
-清理目录: /Users/yu/Downloads/clean
+生成时间: 2026-03-25 20:28:27
+脚本位置: D:\ws\clean\clean.py
+清理目录: D:\ws\clean
 
 
 ## 版本历史

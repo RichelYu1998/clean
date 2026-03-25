@@ -2,12 +2,15 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.2.1-green.svg)]()
+[![Version](https://img.shields.io/badge/version-1.2.2-green.svg)]()
 
 这是一个用于清理下载文件的Python脚本，主要用于管理图片和视频文件。支持多种清理模式和文件类型，具有详细的日志记录和测试模式。最新版本支持所有图片和视频文件的通用清理，无需符合特定命名规则。
+## 🆕 最新特性 (v1.2.2)
 
-## 🆕 最新特性 (v1.2.1)
-
+- **🗑️ 全面清理**: `clean_all_files`函数现在支持删除所有文件和文件夹，除了指定扩展名的文件
+- **📁 非空文件夹删除**: 支持删除非空文件夹，使用`shutil.rmtree()`实现完整删除
+- **🔧 代码优化**: 整合删除逻辑，移除冗余的`clean_any_files`函数
+- **📝 文档更新**: 更新版本号和相关文档说明，修复git clone命令格式
 - **📚 专业文档体系**: 完全重构的README，采用开源项目标准格式
 - **🎨 现代化视觉设计**: emoji图标、GitHub badges、响应式表格布局
 - **📖 完整使用指南**: 快速开始、安装配置、故障排除、最佳实践
@@ -16,7 +19,6 @@
 - **❓ 用户支持**: 常见问题解答、调试技巧、性能优化指南
 - **💻 命令行界面**: 新增完整的命令行参数支持，提升使用便利性
 - **🔄 自动路径定位**: clean.sh和clean.bat脚本现在会自动定位到同级目录运行clean.py，不再依赖固定路径
-- 📝 文档优化: 删除README.md文件中的重复内容，提高文档可读性
 
 ## 📋 目录
 
@@ -118,8 +120,8 @@
 
 1. **下载脚本**
    ```bash
-   git clone <https://github.com/RichelYu1998/clean.git>
-   cd file-cleaner
+   git clone https://github.com/RichelYu1998/clean.git
+   cd clean
    ```
 
 2. **查看帮助**
@@ -169,8 +171,8 @@ python clean.py --directory D:\Downloads --mode all
 
 1. **克隆项目**
    ```bash
-   git clone <https://github.com/RichelYu1998/clean.git>
-   cd file-cleaner
+   git clone https://github.com/RichelYu1998/clean.git
+   cd clean
    ```
 
 2. **验证Python版本**
@@ -586,11 +588,17 @@ SOFTWARE.
 
 ---
 
-**最后更新**: 2026年3月22日
-**版本**: v1.2.1
+**最后更新**: 2026年3月25日
+**版本**: v1.2.2
 **作者**: File Cleaner Team
 
 ## 📈 版本历史
+
+### v1.2.2 (2026-03-25) - 全面清理版
+- 🗑️ **功能增强**: `clean_all_files`函数现在支持删除所有文件和文件夹，除了指定扩展名的文件
+- 📁 **文件夹处理**: 支持删除非空文件夹，使用`shutil.rmtree()`实现完整删除
+- 🔧 **代码优化**: 整合删除逻辑，移除冗余的`clean_any_files`函数
+- 📝 **文档更新**: 更新版本号和相关文档说明
 
 ### v1.2.1 (2026-03-22) - 文档优化版
 - 📝 文档清理: 删除README.md文件中的重复内容，提高文档可读性

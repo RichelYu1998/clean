@@ -1,6 +1,7 @@
 import os
 import re
 import logging
+import shutil
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Optional
@@ -425,19 +426,14 @@ def clean_all_files(
 ) -> None:
     logger = setup_logger(log_file, log_level)
     logger.info("=" * 60)
-    logger.info("开始删除所有文件")
+    logger.info("开始删除所有文件和文件夹")
     logger.info(f"清理目录: {directory}")
-    logger.info(f"删除规则: 删除所有图片和视频文件，不保留任何文件")
+    logger.info(f"删除规则: 删除所有文件和文件夹，除了 log, sh, py, bat 格式的文件")
     logger.info(f"测试模式: {'是' if dry_run else '否'}")
     logger.info("=" * 60)
 
-    image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.tiff', '.svg'}
-    video_extensions = {'.mp4', '.avi', '.mov', '.mkv', '.flv', '.wmv', '.webm', '.m4v'}
-    valid_extensions = image_extensions | video_extensions
-    wsxc_pattern = re.compile(r'^wsxc(\d{10,})_(\d+)(\.[^.]+)$')
-    screenshot_pattern = re.compile(r'^ScreenShot.*\.png$', re.IGNORECASE)
-    wechat_pattern = re.compile(r'^微信图片_(\d{14})_(\d+)_(\d+)\.jpg$', re.IGNORECASE)
-    qq_pattern = re.compile(r'^QQ.*', re.IGNORECASE)
+    # 要保留的文件扩展名
+    exclude_extensions = {'.log', '.sh', '.py', '.bat'}
 
     directory = Path(directory)
 
@@ -449,118 +445,97 @@ def clean_all_files(
         logger.error(f"路径不是目录: {directory}")
         return
 
-    matched_files = []
-    logger.info("扫描文件中...")
+    files_to_delete = []
+    folders_to_delete = []
+    logger.info("扫描文件和文件夹中...")
 
-    for file in directory.iterdir():
-        if file.is_file():
-            wsxc_match = wsxc_pattern.match(file.name)
-            screenshot_match = screenshot_pattern.match(file.name)
-            wechat_match = wechat_pattern.match(file.name)
-            qq_match = qq_pattern.match(file.name)
-            
-            if wsxc_match:
-                main_num = wsxc_match.group(1)
-                sub_num = int(wsxc_match.group(2))
-                ext = wsxc_match.group(3).lower()
-            elif screenshot_match:
-                # 对于ScreenShot文件，使用文件名作为main_num，sub_num设为0
-                main_num = file.name
-                sub_num = 0
-                ext = '.png'
-            elif wechat_match:
-                # 对于微信图片，使用时间戳作为main_num，第一个数字作为sub_num
-                main_num = wechat_match.group(1)  # 日期时间戳
-                sub_num = int(wechat_match.group(2))  # 第一个数字
-                ext = '.jpg'
-            elif qq_match:
-                # 对于QQ开头文件，保留文件名作为主键，按扩展名识别
-                main_num = file.name
-                sub_num = 0
-                ext = file.suffix.lower() or ''
+    for item in directory.iterdir():
+        if item.is_file():
+            # 检查文件扩展名是否在排除列表中
+            ext = item.suffix.lower()
+            if ext not in exclude_extensions:
+                files_to_delete.append(item)
             else:
-                # 检查是否为有效的图片或视频文件扩展名
-                file_ext = file.suffix.lower()
-                if file_ext in valid_extensions:
-                    main_num = file.name
-                    sub_num = 0
-                    ext = file_ext
-                else:
-                    continue
-                
-            if ext in valid_extensions:
-                file_stat = file.stat()
-                mtime = file_stat.st_mtime
-                download_time = datetime.fromtimestamp(mtime)
+                logger.info(f"保留文件: {item.name}")
+        elif item.is_dir():
+            # 对于文件夹，直接删除（不递归）
+            folders_to_delete.append(item)
 
-                matched_files.append({
-                    'file': file,
-                    'main_num': main_num,
-                    'sub_num': sub_num,
-                    'ext': ext,
-                    'is_image': ext in image_extensions,
-                    'is_video': ext in video_extensions,
-                    'mtime': mtime,
-                    'size': file_stat.st_size,
-                    'download_time': download_time
-                })
+    total_files = len(files_to_delete)
+    total_folders = len(folders_to_delete)
+    total_size = sum(file.stat().st_size for file in files_to_delete)
 
-    if not matched_files:
-        logger.warning("没有找到图片或视频文件")
-        return
-
-    matched_files.sort(key=lambda x: x['mtime'], reverse=True)
-
-    total_files = len(matched_files)
-    image_count = sum(1 for f in matched_files if f['is_image'])
-    video_count = sum(1 for f in matched_files if f['is_video'])
-    total_size = sum(f['size'] for f in matched_files)
-
-    logger.info(f"找到 {total_files} 个符合条件的文件")
-    logger.info(f"  - 图片: {image_count} 个")
-    logger.info(f"  - 视频: {video_count} 个")
+    logger.info(f"找到 {total_files} 个文件和 {total_folders} 个文件夹")
     logger.info(f"  - 总大小: {format_size(total_size)}")
 
-    logger.info(f"\n将删除所有 {total_files} 个文件，释放空间: {format_size(total_size)}")
+    if not files_to_delete and not folders_to_delete:
+        logger.warning("没有需要删除的文件或文件夹")
+        logger.info("清理完成")
+        return
 
-    logger.info("\n文件列表：")
-    for i, file_info in enumerate(matched_files, 1):
-        file_type = "图片" if file_info['is_image'] else "视频"
-        download_time_str = file_info['download_time'].strftime('%Y-%m-%d %H:%M:%S')
-        logger.info(
-            f"{i:3d}. {file_info['file'].name} ({file_type}, {format_size(file_info['size'])}, 下载时间: {download_time_str})")
+    logger.info(f"\n将删除 {total_files} 个文件和 {total_folders} 个文件夹")
+
+    if files_to_delete:
+        logger.info("\n将要删除的文件列表：")
+        for i, file in enumerate(files_to_delete, 1):
+            file_size = file.stat().st_size
+            logger.info(f"{i:3d}. {file.name} ({format_size(file_size)})")
+
+    if folders_to_delete:
+        logger.info("\n将要删除的文件夹列表：")
+        for i, folder in enumerate(folders_to_delete, 1):
+            logger.info(f"{i:3d}. {folder.name}")
 
     if dry_run:
-        logger.info("\n[测试模式] 未实际删除文件")
+        logger.info("\n[测试模式] 未实际删除文件和文件夹")
         logger.info("清理完成（测试模式）")
         return
 
     logger.info("\n开始删除文件...")
-    deleted_count = 0
-    failed_count = 0
+    deleted_files_count = 0
+    deleted_folders_count = 0
     deleted_size = 0
+    failed_count = 0
 
-    for file_info in matched_files:
+    # 先删除文件
+    for file in files_to_delete:
         try:
-            file_info['file'].unlink()
-            deleted_count += 1
-            deleted_size += file_info['size']
-            logger.info(f"已删除: {file_info['file'].name} ({format_size(file_info['size'])})")
+            file_size = file.stat().st_size
+            file.unlink()
+            deleted_files_count += 1
+            deleted_size += file_size
+            logger.info(f"已删除文件: {file.name} ({format_size(file_size)})")
         except PermissionError:
-            logger.error(f"删除失败（权限不足）: {file_info['file'].name}")
+            logger.error(f"删除文件失败（权限不足）: {file.name}")
             failed_count += 1
         except FileNotFoundError:
-            logger.warning(f"文件不存在（可能已被删除）: {file_info['file'].name}")
+            logger.warning(f"文件不存在（可能已被删除）: {file.name}")
             failed_count += 1
         except Exception as e:
-            logger.error(f"删除失败 {file_info['file'].name}: {e}")
+            logger.error(f"删除文件失败 {file.name}: {e}")
+            failed_count += 1
+
+    # 再删除文件夹
+    for folder in folders_to_delete:
+        try:
+            shutil.rmtree(folder)  # 删除非空文件夹
+            deleted_folders_count += 1
+            logger.info(f"已删除文件夹: {folder.name}")
+        except PermissionError:
+            logger.error(f"删除文件夹失败（权限不足）: {folder.name}")
+            failed_count += 1
+        except FileNotFoundError:
+            logger.warning(f"文件夹不存在（可能已被删除）: {folder.name}")
+            failed_count += 1
+        except Exception as e:
+            logger.error(f"删除文件夹失败 {folder.name}: {e}")
             failed_count += 1
 
     logger.info("\n" + "=" * 60)
     logger.info("清理完成")
-    logger.info(f"成功删除: {deleted_count} 个文件，释放空间: {format_size(deleted_size)}")
+    logger.info(f"成功删除: {deleted_files_count} 个文件，{deleted_folders_count} 个文件夹，释放空间: {format_size(deleted_size)}")
     if failed_count > 0:
-        logger.warning(f"删除失败: {failed_count} 个文件")
+        logger.warning(f"删除失败: {failed_count} 个项目")
     logger.info("=" * 60)
 
 
@@ -664,6 +639,9 @@ def clean_png_files(
     if failed_count > 0:
         logger.warning(f"删除失败: {failed_count} 个文件")
     logger.info("=" * 60)
+
+
+
 
 
 def clean_media_files(
