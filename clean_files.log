@@ -46,3 +46,143 @@
 2026-03-21 23:16:53 - FileCleaner - INFO - ============================================================
 2026-03-21 23:16:53 - FileCleaner - INFO - 扫描文件中...
 2026-03-21 23:16:53 - FileCleaner - WARNING - 没有找到图片或视频文件
+2026-03-25 20:09:49 - FileCleaner - INFO - ============================================================
+2026-03-25 20:09:49 - FileCleaner - INFO - 开始删除任意格式文件和文件夹
+2026-03-25 20:09:49 - FileCleaner - INFO - 清理目录: D:\ws\clean
+2026-03-25 20:09:49 - FileCleaner - INFO - 排除规则: 保留 log, sh, py, bat 格式的文件
+2026-03-25 20:09:49 - FileCleaner - INFO - 测试模式: 是
+2026-03-25 20:09:49 - FileCleaner - INFO - ============================================================
+2026-03-25 20:09:49 - FileCleaner - INFO - 扫描文件和文件夹中...
+2026-03-25 20:09:49 - FileCleaner - INFO - 保留文件: clean.bat
+2026-03-25 20:09:49 - FileCleaner - INFO - 保留文件: clean.py
+2026-03-25 20:09:49 - FileCleaner - INFO - 保留文件: clean.sh
+2026-03-25 20:09:49 - FileCleaner - INFO - 保留文件: clean_files.log
+2026-03-25 20:09:49 - FileCleaner - INFO - 找到 3 个文件和 3 个文件夹
+2026-03-25 20:09:49 - FileCleaner - INFO -   - 总大小: 26.66 KB
+2026-03-25 20:09:49 - FileCleaner - INFO - 
+将删除 3 个文件和 3 个文件夹
+2026-03-25 20:09:49 - FileCleaner - INFO - 
+将要删除的文件列表：
+2026-03-25 20:09:49 - FileCleaner - INFO -   1. .gitignore (662.00 B)
+2026-03-25 20:09:49 - FileCleaner - INFO -   2. clean.md (3.13 KB)
+2026-03-25 20:09:49 - FileCleaner - INFO -   3. README.md (22.88 KB)
+2026-03-25 20:09:49 - FileCleaner - INFO - 
+将要删除的文件夹列表：
+2026-03-25 20:09:49 - FileCleaner - INFO -   1. .git
+2026-03-25 20:09:49 - FileCleaner - INFO -   2. .idea
+2026-03-25 20:09:49 - FileCleaner - INFO -   3. .venv
+2026-03-25 20:09:49 - FileCleaner - INFO - 
+[测试模式] 未实际删除文件和文件夹
+2026-03-25 20:09:49 - FileCleaner - INFO - 清理完成（测试模式）
+2026-03-25 20:19:47 - FileCleaner - INFO - ============================================================
+2026-03-25 20:19:47 - FileCleaner - INFO - 开始删除所有文件和文件夹
+2026-03-25 20:19:47 - FileCleaner - INFO - 清理目录: D:\ws\clean
+2026-03-25 20:19:47 - FileCleaner - INFO - 删除规则: 删除所有文件和文件夹，除了 log, sh, py, bat 格式的文件
+2026-03-25 20:19:47 - FileCleaner - INFO - 测试模式: 是
+2026-03-25 20:19:47 - FileCleaner - INFO - ============================================================
+2026-03-25 20:19:47 - FileCleaner - INFO - 扫描文件和文件夹中...
+2026-03-25 20:19:47 - FileCleaner - INFO - 保留文件: clean.bat
+2026-03-25 20:19:47 - FileCleaner - INFO - 保留文件: clean.py
+2026-03-25 20:19:47 - FileCleaner - INFO - 保留文件: clean.sh
+2026-03-25 20:19:47 - FileCleaner - INFO - 保留文件: clean_files.log
+2026-03-25 20:19:47 - FileCleaner - INFO - 找到 3 个文件和 3 个文件夹
+2026-03-25 20:19:47 - FileCleaner - INFO -   - 总大小: 26.66 KB
+2026-03-25 20:19:47 - FileCleaner - INFO - 
+将删除 3 个文件和 3 个文件夹
+2026-03-25 20:19:47 - FileCleaner - INFO - 
+将要删除的文件列表：
+2026-03-25 20:19:47 - FileCleaner - INFO -   1. .gitignore (662.00 B)
+2026-03-25 20:19:47 - FileCleaner - INFO -   2. clean.md (3.13 KB)
+2026-03-25 20:19:47 - FileCleaner - INFO -   3. README.md (22.88 KB)
+2026-03-25 20:19:47 - FileCleaner - INFO - 
+将要删除的文件夹列表：
+2026-03-25 20:19:47 - FileCleaner - INFO -   1. .git
+2026-03-25 20:19:47 - FileCleaner - INFO -   2. .idea
+2026-03-25 20:19:47 - FileCleaner - INFO -   3. .venv
+2026-03-25 20:19:47 - FileCleaner - INFO - 
+[测试模式] 未实际删除文件和文件夹
+2026-03-25 20:19:47 - FileCleaner - INFO - 清理完成（测试模式）
+2026-03-25 20:23:25 - FileCleaner - INFO - ============================================================
+2026-03-25 20:23:25 - FileCleaner - INFO - 开始删除所有文件和文件夹
+2026-03-25 20:23:25 - FileCleaner - INFO - 清理目录: D:\ws\clean
+2026-03-25 20:23:25 - FileCleaner - INFO - 删除规则: 删除所有文件和文件夹，除了 log, sh, py, bat 格式的文件
+2026-03-25 20:23:25 - FileCleaner - INFO - 测试模式: 是
+2026-03-25 20:23:25 - FileCleaner - INFO - ============================================================
+2026-03-25 20:23:25 - FileCleaner - INFO - 扫描文件和文件夹中...
+2026-03-25 20:23:25 - FileCleaner - INFO - 保留文件: clean.bat
+2026-03-25 20:23:25 - FileCleaner - INFO - 保留文件: clean.py
+2026-03-25 20:23:25 - FileCleaner - INFO - 保留文件: clean.sh
+2026-03-25 20:23:25 - FileCleaner - INFO - 保留文件: clean_files.log
+2026-03-25 20:23:25 - FileCleaner - INFO - 找到 3 个文件和 3 个文件夹
+2026-03-25 20:23:25 - FileCleaner - INFO -   - 总大小: 26.66 KB
+2026-03-25 20:23:25 - FileCleaner - INFO - 
+将删除 3 个文件和 3 个文件夹
+2026-03-25 20:23:25 - FileCleaner - INFO - 
+将要删除的文件列表：
+2026-03-25 20:23:25 - FileCleaner - INFO -   1. .gitignore (662.00 B)
+2026-03-25 20:23:25 - FileCleaner - INFO -   2. clean.md (3.13 KB)
+2026-03-25 20:23:25 - FileCleaner - INFO -   3. README.md (22.88 KB)
+2026-03-25 20:23:25 - FileCleaner - INFO - 
+将要删除的文件夹列表：
+2026-03-25 20:23:25 - FileCleaner - INFO -   1. .git
+2026-03-25 20:23:25 - FileCleaner - INFO -   2. .idea
+2026-03-25 20:23:25 - FileCleaner - INFO -   3. .venv
+2026-03-25 20:23:25 - FileCleaner - INFO - 
+[测试模式] 未实际删除文件和文件夹
+2026-03-25 20:23:25 - FileCleaner - INFO - 清理完成（测试模式）
+2026-03-25 20:24:06 - FileCleaner - INFO - ============================================================
+2026-03-25 20:24:06 - FileCleaner - INFO - 开始删除所有文件和文件夹
+2026-03-25 20:24:06 - FileCleaner - INFO - 清理目录: D:\ws\clean
+2026-03-25 20:24:06 - FileCleaner - INFO - 删除规则: 删除所有文件和文件夹，除了 log, sh, py, bat 格式的文件
+2026-03-25 20:24:06 - FileCleaner - INFO - 测试模式: 是
+2026-03-25 20:24:06 - FileCleaner - INFO - ============================================================
+2026-03-25 20:24:06 - FileCleaner - INFO - 扫描文件和文件夹中...
+2026-03-25 20:24:06 - FileCleaner - INFO - 保留文件: clean.bat
+2026-03-25 20:24:06 - FileCleaner - INFO - 保留文件: clean.py
+2026-03-25 20:24:06 - FileCleaner - INFO - 保留文件: clean.sh
+2026-03-25 20:24:06 - FileCleaner - INFO - 保留文件: clean_files.log
+2026-03-25 20:24:06 - FileCleaner - INFO - 找到 3 个文件和 3 个文件夹
+2026-03-25 20:24:06 - FileCleaner - INFO -   - 总大小: 26.66 KB
+2026-03-25 20:24:06 - FileCleaner - INFO - 
+将删除 3 个文件和 3 个文件夹
+2026-03-25 20:24:06 - FileCleaner - INFO - 
+将要删除的文件列表：
+2026-03-25 20:24:06 - FileCleaner - INFO -   1. .gitignore (662.00 B)
+2026-03-25 20:24:06 - FileCleaner - INFO -   2. clean.md (3.13 KB)
+2026-03-25 20:24:06 - FileCleaner - INFO -   3. README.md (22.88 KB)
+2026-03-25 20:24:06 - FileCleaner - INFO - 
+将要删除的文件夹列表：
+2026-03-25 20:24:06 - FileCleaner - INFO -   1. .git
+2026-03-25 20:24:06 - FileCleaner - INFO -   2. .idea
+2026-03-25 20:24:06 - FileCleaner - INFO -   3. .venv
+2026-03-25 20:24:06 - FileCleaner - INFO - 
+[测试模式] 未实际删除文件和文件夹
+2026-03-25 20:24:06 - FileCleaner - INFO - 清理完成（测试模式）
+2026-03-25 20:28:27 - FileCleaner - INFO - ============================================================
+2026-03-25 20:28:27 - FileCleaner - INFO - 开始删除所有文件和文件夹
+2026-03-25 20:28:27 - FileCleaner - INFO - 清理目录: D:\ws\clean
+2026-03-25 20:28:27 - FileCleaner - INFO - 删除规则: 删除所有文件和文件夹，除了 log, sh, py, bat 格式的文件
+2026-03-25 20:28:27 - FileCleaner - INFO - 测试模式: 是
+2026-03-25 20:28:27 - FileCleaner - INFO - ============================================================
+2026-03-25 20:28:27 - FileCleaner - INFO - 扫描文件和文件夹中...
+2026-03-25 20:28:27 - FileCleaner - INFO - 保留文件: clean.bat
+2026-03-25 20:28:27 - FileCleaner - INFO - 保留文件: clean.py
+2026-03-25 20:28:27 - FileCleaner - INFO - 保留文件: clean.sh
+2026-03-25 20:28:27 - FileCleaner - INFO - 保留文件: clean_files.log
+2026-03-25 20:28:27 - FileCleaner - INFO - 找到 3 个文件和 3 个文件夹
+2026-03-25 20:28:27 - FileCleaner - INFO -   - 总大小: 27.37 KB
+2026-03-25 20:28:27 - FileCleaner - INFO - 
+将删除 3 个文件和 3 个文件夹
+2026-03-25 20:28:27 - FileCleaner - INFO - 
+将要删除的文件列表：
+2026-03-25 20:28:27 - FileCleaner - INFO -   1. .gitignore (662.00 B)
+2026-03-25 20:28:27 - FileCleaner - INFO -   2. clean.md (3.13 KB)
+2026-03-25 20:28:27 - FileCleaner - INFO -   3. README.md (23.60 KB)
+2026-03-25 20:28:27 - FileCleaner - INFO - 
+将要删除的文件夹列表：
+2026-03-25 20:28:27 - FileCleaner - INFO -   1. .git
+2026-03-25 20:28:27 - FileCleaner - INFO -   2. .idea
+2026-03-25 20:28:27 - FileCleaner - INFO -   3. .venv
+2026-03-25 20:28:27 - FileCleaner - INFO - 
+[测试模式] 未实际删除文件和文件夹
+2026-03-25 20:28:27 - FileCleaner - INFO - 清理完成（测试模式）
